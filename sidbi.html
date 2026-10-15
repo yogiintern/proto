@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIDBI Staff — Defence Credit Copilot</title>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<style>
+  body { background: linear-gradient(135deg, var(--sidbi-primary) 0%, var(--sidbi-primary-dark) 100%); min-height: 100vh; display: grid; place-items: center; padding: 16px; }
+  .login-card { max-width: 440px; width: 100%; }
+  .logo-badge { background: var(--sidbi-primary); color: #fff; border-radius: 6px; padding: 3px 10px; font-weight: 800; }
+  .persona-pick { display: grid; gap: 8px; margin-bottom: 12px; }
+</style>
+</head>
+<body>
+<div class="card login-card">
+  <div class="row mb"><span class="logo-badge">SIDBI</span><strong>Defence Credit Copilot — Staff</strong></div>
+  <p class="small mb">Authorised SIDBI personnel only. For applicant companies, use the <a href="index.html">MSME portal</a>.</p>
+  <div class="field"><label>Demo personas (auto-fill)</label>
+    <div class="persona-pick">
+      <button class="btn secondary sm" onclick="S.fill('anjali.verma@sidbi.demo')">Anjali Verma — Credit Officer</button>
+      <button class="btn secondary sm" onclick="S.fill('meera.iyer@sidbi.demo')">Meera Iyer — Senior Credit Reviewer</button>
+      <button class="btn secondary sm" onclick="S.fill('rajesh.kumar@sidbi.demo')">Rajesh Kumar — Programme Manager (PDI)</button>
+    </div>
+  </div>
+  <div class="field"><label>Email</label><input class="input" id="s-email" type="email"></div>
+  <div class="field"><label>Password</label><input class="input" id="s-pass" type="password"></div>
+  <div id="s-err" class="small text-danger mb hidden"></div>
+  <button class="btn" style="width:100%" onclick="S.login()">Login</button>
+  <p class="small center mt muted">Prototype with fictional data. Not for production use.</p>
+</div>
+<script src="data/users.js"></script>
+<script src="data/questionnaire.js"></script>
+<script src="data/seed.js"></script>
+<script src="js/core.js"></script>
+<script>
+window.S = {
+  fill(email){ document.getElementById('s-email').value = email; document.getElementById('s-pass').value = 'demo123'; },
+  login(){
+    const u = Auth.login(document.getElementById('s-email').value, document.getElementById('s-pass').value, 'sidbi');
+    if(!u){ const e = document.getElementById('s-err'); e.textContent = 'Invalid credentials (ERR-1001). Try a demo persona.'; e.classList.remove('hidden'); return; }
+    location.href = 'app.html#/queue';
+  }
+};
+document.getElementById('s-pass').addEventListener('keydown', e => { if(e.key==='Enter') S.login(); });
+</script>
+</body>
+</html>

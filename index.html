@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SIDBI — Defence Credit Copilot</title>
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<style>
+  .pub-topbar { background: var(--sidbi-primary); color: #fff; padding: 12px 0; }
+  .pub-topbar .row { justify-content: space-between; }
+  .logo-badge { background: #fff; color: var(--sidbi-primary); border-radius: 6px; padding: 3px 10px; font-weight: 800; }
+  .hero { background: linear-gradient(135deg, var(--sidbi-primary) 0%, var(--sidbi-primary-dark) 100%); color: #fff; padding: 56px 0; }
+  .hero h1 { max-width: 720px; margin-bottom: 14px; }
+  .hero p { max-width: 640px; opacity: .92; margin-bottom: 24px; }
+  .strip { padding: 28px 0; }
+  .login-card { max-width: 420px; margin: 0 auto; }
+  .pub-footer { background: var(--sidbi-primary-dark); color: #cfe0f0; padding: 18px 0; font-size: .8rem; margin-top: 40px; }
+  .persona-pick { display: grid; gap: 8px; margin-bottom: 12px; }
+  .persona-pick button { text-align: left; }
+</style>
+</head>
+<body>
+<div class="pub-topbar">
+  <div class="container row">
+    <div class="row"><span class="logo-badge">SIDBI</span><strong>Defence Credit Copilot <span class="small" style="opacity:.8">(Prototype)</span></strong></div>
+    <div class="row">
+      <a class="btn ghost" style="color:#fff" href="sidbi.html">SIDBI Staff Login</a>
+      <button class="btn gold" onclick="Pub.show('login')">MSME Login</button>
+    </div>
+  </div>
+</div>
+
+<!-- LANDING -->
+<section id="view-landing">
+  <div class="hero">
+    <div class="container">
+      <h1>Credit readiness for India's defence MSMEs</h1>
+      <p>An AI-guided journey that understands your defence business — from iDEX prototype to purchase order to invoice — and connects you to the right capital: grants and venture capital at pre-debt stage, PO finance, guarantees, TReDS and term loans as you grow.</p>
+      <div class="row wrap">
+        <button class="btn gold" style="font-size:1.05rem" onclick="Pub.startOnboarding()">Check eligibility &amp; start →</button>
+        <button class="btn secondary" onclick="Pub.show('login')">I already have an account</button>
+      </div>
+    </div>
+  </div>
+  <div class="strip"><div class="container grid3">
+    <div class="card"><h3>🏭 Who it's for</h3><p class="muted">Defence <strong>manufacturing</strong> and <strong>services</strong> MSMEs — Tier-2/3 suppliers, iDEX/TDF innovators, DPSU supply chains.</p></div>
+    <div class="card"><h3>🚫 Who it's not for</h3><p class="muted">Trading / reselling businesses are outside this programme's scope. The eligibility check will tell you in the first 3 questions.</p></div>
+    <div class="card"><h3>🔒 Your data, your consent</h3><p class="muted">Purpose-specific consent, Indian data residency, no classified documents — ever. You approve everything before it's shared.</p></div>
+  </div></div>
+  <div class="strip"><div class="container card">
+    <h3>How it works</h3>
+    <div class="stepper mt">
+      <div class="step done">Answer a few questions</div><div class="step">Share documents</div><div class="step">Get your readiness &amp; funding route</div><div class="step">Approve your dossier</div><div class="step">We connect you to SIDBI / lenders / VCs</div>
+    </div>
+  </div></div>
+</section>
+
+<!-- LOGIN -->
+<section id="view-login" class="hidden">
+  <div class="strip"><div class="container">
+    <div class="card login-card">
+      <h3>MSME Login</h3>
+      <p class="small mb">For applicant companies. SIDBI staff use the <a href="sidbi.html">staff login</a>.</p>
+      <div class="field"><label>Demo personas (auto-fill)</label>
+        <div class="persona-pick">
+          <button class="btn secondary sm" onclick="Pub.fill('msme.precision@demo.in')">Precision Aero Components — PO finance case (existing)</button>
+          <button class="btn secondary sm" onclick="Pub.fill('msme.seeker@demo.in')">Seeker Systems — pre-debt / equity route</button>
+          <button class="btn secondary sm" onclick="Pub.fill('msme.shieldtest@demo.in')">ShieldTest Services — TReDS &amp; monitoring</button>
+        </div>
+      </div>
+      <div class="field"><label>Email</label><input class="input" id="login-email" type="email" autocomplete="username"></div>
+      <div class="field"><label>Password</label><input class="input" id="login-pass" type="password" autocomplete="current-password"></div>
+      <div id="login-err" class="small text-danger mb hidden"></div>
+      <button class="btn" style="width:100%" onclick="Pub.login()">Login</button>
+      <p class="small center mt"><a href="#" onclick="Pub.startOnboarding();return false;">New defence MSME? Start self-onboarding →</a></p>
+    </div>
+  </div></div>
+</section>
+
+<!-- ONBOARDING -->
+<section id="view-onboard" class="hidden">
+  <div class="strip"><div class="container" style="max-width:640px">
+    <div class="card" id="onboard-host"></div>
+  </div></div>
+</section>
+
+<footer class="pub-footer"><div class="container">
+  Prototype with fictional data for demonstration. Not a loan offer or investment advice; credit/investment decisions rest with regulated institutions. Do not upload real or classified documents.
+  <span class="right"><a href="#" style="color:#cfe0f0" onclick="DB.reset();return false;">Reset demo data</a></span>
+</div></footer>
+
+<script src="data/users.js"></script>
+<script src="data/questionnaire.js"></script>
+<script src="data/seed.js"></script>
+<script src="js/core.js"></script>
+<script src="js/onboarding.js"></script>
+</body>
+</html>

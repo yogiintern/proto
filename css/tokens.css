@@ -1,0 +1,23 @@
+/* TASK-01 — SIDBI design tokens */
+:root {
+  --sidbi-primary: #004B8D;
+  --sidbi-primary-dark: #003566;
+  --sidbi-accent: #00A19A;
+  --sidbi-gold: #F2A900;
+  --sidbi-bg: #F4F7FB;
+  --surface: #FFFFFF;
+  --ink: #1B2A3A;
+  --ink-muted: #5B6B7C;
+  --line: #DDE5EE;
+  --success: #1E8E3E;
+  --success-bg: #E5F4EA;
+  --warning: #B26A00;
+  --warning-bg: #FDF1DC;
+  --danger: #C5221F;
+  --danger-bg: #FBEBEA;
+  --info-bg: #E8F0FA;
+  --radius: 10px;
+  --shadow-sm: 0 1px 2px rgba(16,42,67,.08);
+  --shadow-md: 0 6px 20px rgba(16,42,67,.14);
+  --font: "Segoe UI", "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+}

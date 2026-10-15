@@ -1,0 +1,20 @@
+/* TASK-01 — base */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; }
+body { font-family: var(--font); color: var(--ink); background: var(--sidbi-bg); line-height: 1.45; }
+h1 { font-size: 2rem; } h2 { font-size: 1.5rem; } h3 { font-size: 1.2rem; } h4 { font-size: 1.05rem; }
+small, .small { font-size: .8rem; color: var(--ink-muted); }
+a { color: var(--sidbi-primary); }
+.muted { color: var(--ink-muted); }
+.money { font-variant-numeric: tabular-nums; font-weight: 600; }
+:focus-visible { outline: 3px solid var(--sidbi-gold); outline-offset: 2px; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
+.row { display: flex; gap: 12px; align-items: center; }
+.row.wrap { flex-wrap: wrap; }
+.grow { flex: 1; }
+.right { margin-left: auto; }
+.mt { margin-top: 16px; } .mb { margin-bottom: 16px; }
+.hidden { display: none !important; }
+.text-success { color: var(--success); } .text-warning { color: var(--warning); } .text-danger { color: var(--danger); }
+.center { text-align: center; }
+@media (max-width: 768px) { h1 { font-size: 1.5rem; } h2 { font-size: 1.25rem; } }
